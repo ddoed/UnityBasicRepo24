@@ -12,13 +12,37 @@ namespace UnityBasic.Prototype2
         // Start is called before the first frame update
         void Start()
         {
-            
+
         }
 
         // Update is called once per frame
         void Update()
         {
             transform.position += Vector3.back * Time.deltaTime * speed;
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.collider.CompareTag("End"))
+            {
+                Debug.Log("게임 오버");
+            }
+        }
+
+        private void OnCollisionExit(Collision collision)
+        {
+            if (collision.collider.CompareTag("End"))
+            {
+                Debug.Log("충돌 종료");
+            }
+        }
+
+        private void OnCollisionStay(Collision collision)
+        {
+            if (collision.collider.CompareTag("End"))
+            {
+                Debug.Log("충돌 진행 중");
+            }
         }
     }
 }
