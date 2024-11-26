@@ -33,7 +33,7 @@ namespace UnityBasic.Prototype2
         {
             if (collision.collider.CompareTag("End"))
             {
-                Debug.Log("충돌 종료");
+                //Debug.Log("충돌 종료");
             }
         }
 
@@ -41,7 +41,7 @@ namespace UnityBasic.Prototype2
         {
             if (collision.collider.CompareTag("End"))
             {
-                Debug.Log("충돌 진행 중");
+                //Debug.Log("충돌 진행 중");
             }
         }
     }

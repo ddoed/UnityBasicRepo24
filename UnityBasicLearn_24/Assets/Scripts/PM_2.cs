@@ -47,5 +47,18 @@ namespace UnityBasic.Prototype2
             float horizontal = Input.GetAxis("Horizontal");
             transform.position += speed * Time.deltaTime * Vector3.right * horizontal;
         }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Item"))
+            {
+                IitemCollectable item = other.GetComponent<IitemCollectable>();
+                item.Interact();
+
+                speed *= 2;
+                Destroy(other.gameObject);
+                
+            }
+        }
     }
 }

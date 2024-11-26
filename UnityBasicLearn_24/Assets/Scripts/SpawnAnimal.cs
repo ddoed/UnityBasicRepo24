@@ -11,6 +11,11 @@ namespace UnityBasic.Prototype2
         public float spawnTime = 3f;
         private float checkTime = 0f;
 
+        [Header("Item 소환 세팅")]
+        public GameObject bananaPrefab;
+        public float itemSpawnTime = 3f;
+        private float itemCheckTime = 0f;
+
         public int limitx = 20;
 
 
@@ -24,7 +29,9 @@ namespace UnityBasic.Prototype2
         void Update()
         {
             SpawnAnimals();
+            SpawnBanana();
         }
+    
 
         private void SpawnAnimals()
         {
@@ -37,6 +44,22 @@ namespace UnityBasic.Prototype2
 
                 Vector3 spawnPos = new Vector3(randomX, 0, 19);
                 Instantiate(animalPrefab, spawnPos, animalPrefab.transform.rotation);
+            }
+        }
+
+        private void SpawnBanana()
+        {
+            itemCheckTime += Time.deltaTime;
+
+            if (itemCheckTime >= itemSpawnTime)
+            {
+                itemCheckTime = 0f;
+
+                int randomX = Random.Range(-limitx, limitx);
+
+                Vector3 spawnPos = new Vector3(randomX, 1, 0);
+
+                Instantiate(bananaPrefab, spawnPos,animalPrefab.transform.rotation);
             }
         }
     }
