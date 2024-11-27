@@ -26,6 +26,7 @@ namespace UnityBasic.Prototype2
             if (collision.collider.CompareTag("End"))
             {
                 Debug.Log("게임 오버");
+                GameManager.instance.GameOver();
             }
         }
 

@@ -9,11 +9,12 @@ namespace UnityBasic.Prototype2
         public void Interact();
     }
 
-    public class Banana : MonoBehaviour, IitemCollectable
+    public class Banana : Item
     {
-        public void Interact()
+        public override void Interact()
         {
-            Debug.Log("Banana È¹µæ ¼Óµµ Áõ°¡");
+            base.Interact();
+            Debug.Log("¹Ù³ª³ª ¾ÆÀÌÅÛ È¹µæ");
         }
     }
 }
